@@ -1,123 +1,138 @@
-.projects {
-  background: #f5f8fc;
-  padding: 80px 20px;
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap");
+
+/* SECTION */
+.projects-section {
+  padding: 140px 20px;
+  background:
+    radial-gradient(circle at top, rgba(34,211,238,.15), transparent 55%),
+    linear-gradient(to bottom, #020617, #030a1f, #020617);
+  font-family: "Orbitron", sans-serif;
+  color: #e5e7eb;
 }
 
-.projects-container {
-  max-width: 1200px;
-  margin: auto;
+/* TITLES */
+.projects-title {
+  text-align: center;
+  font-size: 3rem;
+  color: #22d3ee;
+  letter-spacing: 4px;
 }
 
-.projects-header {
-  margin-bottom: 50px;
+.projects-subtitle {
+  text-align: center;
+  opacity: .7;
+  margin-bottom: 70px;
+  letter-spacing: 3px;
 }
 
-.projects-header h2 {
-  font-size: 36px;
-  font-weight: 600;
-  color: #081a2b;
-}
-
-.projects-header p {
-  font-size: 14px;
-  color: #4da3ff;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-top: 6px;
-}
-
+/* GRID */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 40px;
 }
 
+/* CARD */
 .project-card {
-  background: #ffffff;
-  border: 1px solid #e5eaf0;
+  position: relative;
+  height: 340px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 30px 80px rgba(0,0,0,.7);
+  overflow: hidden;
+  transition: transform .6s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-14px) rotateX(8deg);
+}
+
+/* ===== INITIAL TITLE ===== */
+.project-title {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: #22d3ee;
+  transition: opacity .5s ease;
+}
+
+/* Hide title on hover */
+.project-card:hover .project-title {
+  opacity: 0;
+}
+
+/* ===== HOVER DETAILS ===== */
+.project-details {
+  position: absolute;
+  inset: 0;
   padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
+  background: rgba(2,6,23,.92);
+  opacity: 0;
+  transform: scale(.9);
+  transition: all .6s ease;
 }
 
-.project-card h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #081a2b;
-  margin-bottom: 15px;
+/* Show details on hover */
+.project-card:hover .project-details {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.project-desc {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #333;
+/* DETAILS TEXT */
+.project-details p {
+  font-size: .9rem;
+  opacity: .85;
+  margin-bottom: 18px;
+}
+
+.project-details ul {
+  list-style: none;
+  padding: 0;
   margin-bottom: 20px;
 }
 
-.project-tech {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 25px;
+.project-details li {
+  font-size: .75rem;
+  opacity: .75;
+  margin-bottom: 6px;
 }
 
-.project-tech li {
-  font-size: 14px;
-  color: #555;
-  padding: 6px 0;
-  border-bottom: 1px solid #eef2f7;
-}
-
-.project-tech li:last-child {
-  border-bottom: none;
-}
-
-.project-actions {
+/* BUTTONS */
+.project-buttons {
   display: flex;
-  gap: 12px;
+  justify-content: center;
+  gap: 14px;
 }
 
-/* Reuse buttons */
-.btn {
+.project-buttons a {
   padding: 10px 18px;
-  font-size: 13px;
+  font-size: .75rem;
+  border-radius: 999px;
+  background: #22d3ee;
+  color: #020617;
   text-decoration: none;
-  border-radius: 4px;
-  transition: 0.3s;
+  transition: .4s;
 }
 
-.primary {
-  background: #4da3ff;
-  color: white;
+.project-buttons a:last-child {
+  background: transparent;
+  border: 1px solid #22d3ee;
+  color: #22d3ee;
 }
 
-.primary:hover {
-  background: #368fe3;
+.project-buttons a:hover {
+  box-shadow: 0 0 20px rgba(34,211,238,.8);
 }
 
-.secondary {
-  border: 1px solid #4da3ff;
-  color: #4da3ff;
-}
-
-.secondary:hover {
-  background: #4da3ff;
-  color: white;
-}
-
-/* Mobile */
-@media (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .projects-header h2 {
-    font-size: 28px;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+/* RESPONSIVE */
+@media(max-width:768px){
+  .projects-title{font-size:2.2rem;}
 }

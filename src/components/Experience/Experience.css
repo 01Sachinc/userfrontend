@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
+
+.experience-section {
+  min-height: 100vh;
+  padding: 120px 20px;
+  background: radial-gradient(circle at top, #020617, #000);
+  font-family: "Orbitron", sans-serif;
+  color: #e5e7eb;
+}
+
+.experience-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.experience-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.experience-title span {
+  color: #5eead4;
+}
+
+.experience-subtitle {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 70px;
+}
+
+/* GRID */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 45px;
+}
+
+/* CARD BASE */
+.experience-card {
+  position: relative;
+  height: 280px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* 3D TILT */
+.experience-card:hover {
+  transform: rotateX(8deg) rotateY(-6deg) translateY(-14px);
+}
+
+/* CARD LAYERS */
+.card-layer {
+  position: absolute;
+  inset: 0;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.6s ease;
+  backface-visibility: hidden;
+}
+
+/* FRONT */
+.front h3 {
+  font-size: 1.25rem;
+}
+
+.company {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+.year {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-top: 6px;
+}
+
+/* BACK */
+.back {
+  opacity: 0;
+  transform: translateZ(40px) scale(0.9);
+}
+
+.back p {
+  font-size: 0.78rem;
+  line-height: 1.8;
+  text-align: center;
+  color: #d1d5db;
+}
+
+/* HOVER TRANSITION */
+.experience-card:hover .front {
+  transform: translateY(-40px) scale(0.85);
+  opacity: 0;
+}
+
+.experience-card:hover .back {
+  opacity: 1;
+  transform: translateZ(60px) scale(1);
+}
+
+/* GLOW VARIANTS */
+.glow-green:hover {
+  box-shadow: 0 0 45px rgba(94, 234, 212, 0.6);
+}
+
+.glow-blue:hover {
+  box-shadow: 0 0 45px rgba(56, 189, 248, 0.6);
+}
+
+.glow-purple:hover {
+  box-shadow: 0 0 45px rgba(168, 85, 247, 0.6);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .experience-card {
+    height: 250px;
+  }
+
+  .experience-title {
+    font-size: 1.9rem;
+  }
+}

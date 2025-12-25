@@ -1,86 +1,68 @@
 import "./Projects.css";
 
+const projects = [
+  {
+    title: "User Management System",
+    description:
+      "Full-stack system for managing users with authentication, validation and REST APIs.",
+    tech: ["Java", "Spring Boot", "MySQL", "React (Vite)"],
+    github: "https://github.com/SachinSomannachar/user-management",
+    live: "#",
+  },
+  {
+    title: "Authentication & Authorization API",
+    description:
+      "Secure backend API with JWT authentication and role-based access control.",
+    tech: ["Spring Security", "JWT", "REST APIs", "MySQL"],
+    github: "https://github.com/SachinSomannachar/auth-api",
+    live: "#",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "Premium portfolio website using glassmorphism and enterprise-level UI design.",
+    tech: ["React", "Vite", "CSS Glass UI", "REST APIs"],
+    github: "https://github.com/SachinSomannachar/portfolio",
+    live: "http://localhost:5173",
+  },
+];
 
-const Projects = () => {
+export default function Projects() {
   return (
-    <section className="projects" id="projects">
+    <section className="projects-section" id="projects">
       <div className="projects-container">
-
-        <div className="projects-header">
-          <h2>Projects</h2>
-          <p>Real Applications & System Design</p>
-        </div>
+        <h2 className="projects-title">Projects</h2>
+        <p className="projects-subtitle">
+          Real Applications & System Design
+        </p>
 
         <div className="projects-grid">
+          {projects.map((project, index) => (
+            <div className="project-card" key={index}>
+              {/* INITIAL STATE (TITLE ONLY) */}
+              <div className="project-title">
+                {project.title}
+              </div>
 
-          {/* Project 1 */}
-          <div className="project-card">
-            <h3>User Management System</h3>
-            <p className="project-desc">
-              A full-stack web application to manage users with authentication,
-              validation, and RESTful APIs.
-            </p>
+              {/* HOVER STATE (DETAILS ONLY) */}
+              <div className="project-details">
+                <p>{project.description}</p>
 
-            <ul className="project-tech">
-              <li>Java</li>
-              <li>Spring Boot</li>
-              <li>MySQL</li>
-              <li>React (Vite)</li>
-            </ul>
+                <ul>
+                  {project.tech.map((t, i) => (
+                    <li key={i}>{t}</li>
+                  ))}
+                </ul>
 
-            <div className="project-actions">
-              <a href="#" className="btn primary">View Code</a>
-              <a href="#" className="btn secondary">Live Demo</a>
+                <div className="project-buttons">
+                  <a href={project.github} target="_blank">View Code</a>
+                  <a href={project.live} target="_blank">Live Demo</a>
+                </div>
+              </div>
             </div>
-          </div>
-
-          {/* Project 2 */}
-          <div className="project-card">
-            <h3>Authentication & Authorization API</h3>
-            <p className="project-desc">
-              Secure backend authentication system with login, registration,
-              validation, and role-based access control.
-            </p>
-
-            <ul className="project-tech">
-              <li>Spring Security</li>
-              <li>JWT</li>
-              <li>REST APIs</li>
-              <li>MySQL</li>
-            </ul>
-
-            <div className="project-actions">
-              <a href="#" className="btn primary">View Code</a>
-              <a href="#" className="btn secondary">API Docs</a>
-            </div>
-          </div>
-
-          {/* Project 3 */}
-          <div className="project-card">
-            <h3>Portfolio Website</h3>
-            <p className="project-desc">
-              Professional portfolio website inspired by enterprise UI design,
-              integrated with backend APIs.
-            </p>
-
-            <ul className="project-tech">
-              <li>React</li>
-              <li>Vite</li>
-              <li>Axios</li>
-              <li>REST APIs</li>
-            </ul>
-
-            <div className="project-actions">
-              <a href="#" className="btn primary">View Code</a>
-              <a href="#" className="btn secondary">Live Site</a>
-            </div>
-          </div>
-
+          ))}
         </div>
-
       </div>
     </section>
   );
-};
-
-export default Projects;
+}

@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
+
+.auth-page {
+  min-height: 100vh;
+  background: radial-gradient(circle, #020617, #000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  color: #e5e7eb;
+}
+
+.auth-form {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-form input {
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: white;
+}
+
+.auth-form button,
+.logout-btn {
+  padding: 12px;
+  background: #22d3ee;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.success {
+  margin-top: 20px;
+  color: #22d3ee;
+  letter-spacing: 2px;
+}
